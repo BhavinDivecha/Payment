@@ -51,7 +51,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: application/json"));
 $response = curl_exec($ch);
 $result=json_decode($response, true);
         if ($result['body']['resultInfo']['resultStatus']=="S"){
-        echo "TxtID : ".$result['body']['txnToken'];
+        echo $result['body']['txnToken'];
         }
         else{
             echo "Result Failed";

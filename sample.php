@@ -1,3 +1,5 @@
+<html>
+    <body>
 <?php
 
 require_once("./PaytmChecksum.php");
@@ -20,7 +22,7 @@ echo sprintf("verifySignature Returns: %b\n\n", $verifySignature);
 
 
 /* initialize JSON String */  
-$body = "{\"mid\":\"nbCBZo84436307724140\",\"orderId\":\"YOUR_ORDER_ID_HERE\"}";
+$body = "{\"mid\":\"nbCBZo84436307724140\",\"orderId\":\".$_POST["ORDERID"].\"}";
 
 /**
 * Generate checksum by parameters we have in body
@@ -31,3 +33,6 @@ $verifySignature = PaytmChecksum::verifySignature($body, 'HsKuY%63DZkHISOz', $pa
 echo sprintf("generateSignature Returns: %s\n", $paytmChecksum);
 echo sprintf("verifySignature Returns: %b\n\n", $verifySignature);
 ?>
+<p>Hello</p>
+</body>
+</html>

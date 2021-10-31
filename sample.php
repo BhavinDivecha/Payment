@@ -50,7 +50,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: application/json")); 
 $response = curl_exec($ch);
 $result=json_decode($response, true);
-        if (strcmp($result['body']['resultInfo']['resultStatus'],"S")){
+        if ($result['body']['resultInfo']['resultStatus']=="S"){
         echo "TxtID : ".$result['body']['txnToken'];
         }
         else{

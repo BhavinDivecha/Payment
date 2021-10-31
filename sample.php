@@ -13,9 +13,18 @@ $orderId=$_POST["ORDERID"];
 echo $orderId;
 $paytmParams = array();
 $paytmParams["body"] =  array(
-    "userInfo"      => array(
-        "custId"    => "CUST_001",
+    "requestType"   => "Payment",
+    "mid"           => "nbCBZo84436307724140",
+    "websiteName"   => "WEBSTAGING",
+    "orderId"       => $orderId,
+    "callbackUrl"   => "https://securegw-stage.paytm.in/theia/paytmCallback?ORDER_ID=".$orderId,
+    "txnAmount"     => array(
+        "value"     => "1.00",
+        "currency"  => "INR"
     ),
+    "userInfo"      => array(
+        "custId"    => "CUST_001"
+    )
 );
 /* initialize an array */
 $paytmParam = array();

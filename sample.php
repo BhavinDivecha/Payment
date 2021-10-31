@@ -2,16 +2,17 @@
     <body>
 
 <p>Hello</p>
-        <?php
+<?php
 
-require_once("PaytmChecksum.php");
+require_once("./PaytmChecksum.php");
 
+$orderId=$_POST["ORDERID"];
 /* initialize an array */
 $paytmParams = array();
 
 /* add parameters in Array */
 $paytmParams["MID"] = "nbCBZo84436307724140";
-$paytmParams["ORDERID"] = $_POST["ORDERID"];
+$paytmParams["ORDERID"] = $orderId;
 
 /**
 * Generate checksum by parameters we have
@@ -21,8 +22,9 @@ $paytmChecksum = PaytmChecksum::generateSignature($paytmParams, 'HsKuY%63DZkHISO
 $verifySignature = PaytmChecksum::verifySignature($paytmParams, 'HsKuY%63DZkHISOz', $paytmChecksum);
 echo sprintf("generateSignature Returns: %s\n", $paytmChecksum);
 echo sprintf("verifySignature Returns: %b\n\n", $verifySignature);
-        /* initialize JSON String */  
-$body = "{"\mid\":"\YOUR_MID_HERE\","\orderId\":"\.$_POST["ORDERID"].\"}";
+
+
+$body = "{"\mid\":"\YOUR_MID_HERE\","\orderId\":".$orderId."}";
 
 /**
 * Generate checksum by parameters we have in body
@@ -32,8 +34,6 @@ $paytmChecksum = PaytmChecksum::generateSignature($body, 'HsKuY%63DZkHISOz');
 $verifySignature = PaytmChecksum::verifySignature($body, 'HsKuY%63DZkHISOz', $paytmChecksum);
 echo sprintf("generateSignature Returns: %s\n", $paytmChecksum);
 echo sprintf("verifySignature Returns: %b\n\n", $verifySignature);
-
-
 ?>
 </body>
 </html>

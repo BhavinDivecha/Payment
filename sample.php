@@ -3,37 +3,55 @@
 
 <p>Hello</p>
 <?php
-
-require_once("./PaytmChecksum.php");
+/*
+* import checksum generation utility
+* You can get this utility from https://developer.paytm.com/docs/checksum/
+*/
+require_once("PaytmChecksum.php");
 
 $orderId=$_POST["ORDERID"];
-/* initialize an array */
 $paytmParams = array();
 
-/* add parameters in Array */
-$paytmParams["MID"] = "nbCBZo84436307724140";
-$paytmParams["ORDERID"] = $orderId;
+$paytmParams["body"] = array(
+    "requestType"   => "Payment",
+    "mid"           => "nbCBZo84436307724140",
+    "websiteName"   => "BlackStoneGameDevelopement",
+    "orderId"       => $orderId,
+    "callbackUrl"   => "http://blackstonegamedevelopment.in",
+    "txnAmount"     => array(
+        "value"     => "1.00",
+        "currency"  => "INR",
+    ),
+    "userInfo"      => array(
+        "custId"    => "CUST_001",
+    ),
+);
 
-/**
-* Generate checksum by parameters we have
-* Find your Merchant Key in your Paytm Dashboard at https://dashboard.paytm.com/next/apikeys 
-*/
-$paytmChecksum = PaytmChecksum::generateSignature($paytmParams, 'HsKuY%63DZkHISOz');
-$verifySignature = PaytmChecksum::verifySignature($paytmParams, 'HsKuY%63DZkHISOz', $paytmChecksum);
-echo sprintf("generateSignature Returns: %s\n", $paytmChecksum);
-echo sprintf("verifySignature Returns: %b\n\n", $verifySignature);
-
-
-$body = "{"\mid\":"\YOUR_MID_HERE\","\orderId\":".$orderId."}";
-
-/**
+/*
 * Generate checksum by parameters we have in body
-* Find your Merchant Key in your Paytm Dashboard at https://dashboard.paytm.com/next/apikeys 
+* Find your Merchant Key in your Paytm Dashboard at https://dashboard.paytm.com/next/apikeys 
 */
-$paytmChecksum = PaytmChecksum::generateSignature($body, 'HsKuY%63DZkHISOz');
-$verifySignature = PaytmChecksum::verifySignature($body, 'HsKuY%63DZkHISOz', $paytmChecksum);
-echo sprintf("generateSignature Returns: %s\n", $paytmChecksum);
-echo sprintf("verifySignature Returns: %b\n\n", $verifySignature);
+$checksum = PaytmChecksum::generateSignature(json_encode($paytmParams["body"], JSON_UNESCAPED_SLASHES), "HsKuY%63DZkHISOz");
+
+$paytmParams["head"] = array(
+    "signature"    => $checksum
+);
+
+$post_data = json_encode($paytmParams, JSON_UNESCAPED_SLASHES);
+
+/* for Staging */
+$url = "https://securegw-stage.paytm.in/theia/api/v1/initiateTransaction?mid=nbCBZo84436307724140&orderId=".$orderId;
+
+/* for Production */
+// $url = "https://securegw.paytm.in/theia/api/v1/initiateTransaction?mid=nbCBZo84436307724140&orderId=".$orderId;
+
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
+curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: application/json")); 
+$response = curl_exec($ch);
+print_r($response);
 ?>
 </body>
 </html>

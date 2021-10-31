@@ -14,7 +14,7 @@ echo $orderId;
 $paytmParams = array();
 $paytmParams["body"] =  array(
     "userInfo"      => array(
-        "custId"    => "CUST_001"
+        "custId"    => "CUST_001",
     )
 );
 /* initialize an array */

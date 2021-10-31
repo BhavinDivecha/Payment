@@ -13,6 +13,22 @@ $orderId=$_POST["ORDERID"];
 echo $orderId;
 $paytmParams = array();
 $paytmParams["body"] =  "BlackStoneGameDevelopement";
+/* initialize an array */
+$paytmParam = array();
+
+/* add parameters in Array */
+$paytmParam["MID"] = "nbCBZo84436307724140";
+$paytmParam["ORDERID"] = $orderId;
+
+/**
+* Generate checksum by parameters we have
+* Find your Merchant Key in your Paytm Dashboard at https://dashboard.paytm.com/next/apikeys 
+*/
+$paytmChecksum = PaytmChecksum::generateSignature($paytmParam, 'HsKuY%63DZkHISOz');
+$verifySignature = PaytmChecksum::verifySignature($paytmParam, 'HsKuY%63DZkHISOz', $paytmChecksum);
+echo sprintf("generateSignature Returns: %s\n", $paytmChecksum);
+echo sprintf("verifySignature Returns: %b\n\n", $verifySignature);
+
 ?>
 </body>
 </html>

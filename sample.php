@@ -52,7 +52,7 @@ $response = curl_exec($ch);
 $result=json_decode($response, true);
 print_r($result);
         echo "\nHello\n\n";
-        print_r($result["body"]["resultInfo"]["txnToken"]);
+        print_r($result[""]["body"]["resultInfo"]["txnToken"]);
 ?>
 </body>
 </html>

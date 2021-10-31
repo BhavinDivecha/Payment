@@ -8,6 +8,8 @@
 require_once("PaytmChecksum.php");
 
 $orderId=$_POST["ORDERID"];
+$amount=$_POST["AMOUNT"];
+$cusId=$_POST["CUSID"];
 $paytmParams = array();
 $paytmParams["body"] =  array(
     "requestType"   => "Payment",
@@ -16,11 +18,11 @@ $paytmParams["body"] =  array(
     "orderId"       => $orderId,
     "callbackUrl"   => "https://securegw-stage.paytm.in/theia/paytmCallback?ORDER_ID=".$orderId,
     "txnAmount"     => array(
-        "value"     => "1.00",
+        "value"     => $amount,
         "currency"  => "INR"
     ),
     "userInfo"      => array(
-        "custId"    => "CUST_001"
+        "custId"    => $cusId
     )
 );
 

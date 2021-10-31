@@ -12,7 +12,7 @@ require_once("PaytmChecksum.php");
 $orderId=$_POST["ORDERID"];
 echo $orderId;
 $paytmParams = array();
-$paytmParams["body"] =  "BlackStoneGameDevelopement";
+$paytmParams["body"] =  array();
 /* initialize an array */
 $paytmParam = array();
 
@@ -26,8 +26,8 @@ $paytmParam["ORDERID"] = $orderId;
 */
 $paytmChecksum = PaytmChecksum::generateSignature($paytmParam, 'HsKuY%63DZkHISOz');
 $verifySignature = PaytmChecksum::verifySignature($paytmParam, 'HsKuY%63DZkHISOz', $paytmChecksum);
-echo sprintf("generateSignature Returns: %s\n", $paytmChecksum);
-echo sprintf("verifySignature Returns: %b\n\n", $verifySignature);
+
+        echo $paytmChecksum
 
 ?>
 </body>

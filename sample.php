@@ -36,22 +36,6 @@ $checksum = PaytmChecksum::generateSignature(json_encode($paytmParams["body"], J
 $paytmParams["head"] = array(
     "signature"    => $checksum
 );
-
-$post_data = json_encode($paytmParams, JSON_UNESCAPED_SLASHES);
-
-/* for Staging */
-$url = "https://securegw-stage.paytm.in/theia/api/v1/initiateTransaction?mid=nbCBZo84436307724140&orderId=".$orderId;
-
-/* for Production */
-// $url = "https://securegw.paytm.in/theia/api/v1/initiateTransaction?mid=nbCBZo84436307724140&orderId=".$orderId;
-
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
-curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: application/json")); 
-$response = curl_exec($ch);
-print_r($response);
 ?>
 </body>
 </html>

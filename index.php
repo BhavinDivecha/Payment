@@ -2,8 +2,10 @@
 <html>
     <body>
         <form method="post" action="sample.php">
-            MID: <input type="text" id="MID" name="MID">
-            ORDER ID: <input type="text" id="ORDERID" name="ORDERID">
+
+        ORDER ID: <input type="text" id="ORDERID" name="ORDERID">
+            Amount: <input type="text" id="AMOUNT" name="AMOUNT">
+            CUS ID: <input type="text" id="CUSID" name="CUSID">
             <input type="submit">
         </form>
     </body>

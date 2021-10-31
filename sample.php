@@ -30,3 +30,4 @@ $paytmChecksum = PaytmChecksum::generateSignature($body, 'HsKuY%63DZkHISOz');
 $verifySignature = PaytmChecksum::verifySignature($body, 'HsKuY%63DZkHISOz', $paytmChecksum);
 echo sprintf("generateSignature Returns: %s\n", $paytmChecksum);
 echo sprintf("verifySignature Returns: %b\n\n", $verifySignature);
+?>

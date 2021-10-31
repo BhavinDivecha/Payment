@@ -51,6 +51,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: application/json"));
 $response = curl_exec($ch);
 $result=json_decode($response, true);
 print_r($result);
+        print_r($result['txnToken']);
 ?>
 </body>
 </html>

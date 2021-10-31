@@ -13,7 +13,9 @@ $orderId=$_POST["ORDERID"];
 echo $orderId;
 $paytmParams = array();
 $paytmParams["body"] =  array(
-    "userInfo"      => array()
+    "userInfo"      => array(
+
+    )
 );
 /* initialize an array */
 $paytmParam = array();
@@ -29,7 +31,10 @@ $paytmParam["ORDERID"] = $orderId;
 $paytmChecksum = PaytmChecksum::generateSignature($paytmParam, 'HsKuY%63DZkHISOz');
 $verifySignature = PaytmChecksum::verifySignature($paytmParam, 'HsKuY%63DZkHISOz', $paytmChecksum);
 
-echo $orderId;
+$paytmParams["head"] = array(
+    "signature"    => $paytmChecksum
+);
+echo "\n".$paytmChecksum;
 ?>
 </body>
 </html>

@@ -1,7 +1,5 @@
 <html>
     <body>
-
-<p>Hello</p>
 <?php
 /*
 * import checksum generation utility
@@ -10,7 +8,6 @@
 require_once("PaytmChecksum.php");
 
 $orderId=$_POST["ORDERID"];
-echo $orderId;
 $paytmParams = array();
 $paytmParams["body"] =  array(
     "requestType"   => "Payment",
@@ -26,24 +23,6 @@ $paytmParams["body"] =  array(
         "custId"    => "CUST_001"
     )
 );
-/* initialize an array */
-$paytmParam = array();
-
-/* add parameters in Array */
-$paytmParam["MID"] = "nbCBZo84436307724140";
-$paytmParam["ORDERID"] = $orderId;
-
-/**
-* Generate checksum by parameters we have
-* Find your Merchant Key in your Paytm Dashboard at https://dashboard.paytm.com/next/apikeys 
-*/
-// $paytmChecksum = PaytmChecksum::generateSignature($paytmParam, 'HsKuY%63DZkHISOz');
-// $verifySignature = PaytmChecksum::verifySignature($paytmParam, 'HsKuY%63DZkHISOz', $paytmChecksum);
-
-// $paytmParams["head"] = array(
-//     "signature"    => $paytmChecksum
-// );
-// echo "\n".$paytmChecksum;
 
 /*
 * Generate checksum by parameters we have in body
@@ -54,7 +33,6 @@ $checksum = PaytmChecksum::generateSignature(json_encode($paytmParams["body"], J
 $paytmParams["head"] = array(
     "signature"    => $checksum
 );
-echo "\n".$checksum;
 $post_data = json_encode($paytmParams, JSON_UNESCAPED_SLASHES);
 
 /* for Staging */

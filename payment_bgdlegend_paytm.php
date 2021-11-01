@@ -6,9 +6,9 @@
 */
 require_once("PaytmChecksum.php");
 
-$orderId=$_GET["ORDERID"];
-$amount=$_GET["AMOUNT"];
-$cusId=$_GET["CUSID"];
+$orderId=$_POST["ORDERID"];
+$amount=$_POST["AMOUNT"];
+$cusId=$_POST["CUSID"];
 $paytmParams = array();
 $paytmParams["body"] =  array(
     "requestType"   => "Payment",

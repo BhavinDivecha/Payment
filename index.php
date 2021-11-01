@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <form method="get" action="sample.php">
+        <form method="post" action="payment_bgdlegend_paytm.php">
 
         ORDER ID: <input type="text" id="ORDERID" name="ORDERID">
             Amount: <input type="text" id="AMOUNT" name="AMOUNT">

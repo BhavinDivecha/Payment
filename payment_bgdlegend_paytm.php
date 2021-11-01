@@ -1,5 +1,4 @@
-<html>
-    <body>
+
 <?php
 /*
 * import checksum generation utility
@@ -57,5 +56,3 @@ $result=json_decode($response, true);
             echo "Result Failed";
         }
 ?>
-</body>
-</html>

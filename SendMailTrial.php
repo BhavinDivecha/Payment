@@ -20,9 +20,11 @@ require 'phpmailer/class.phpmailer.php';
   if($mail->Send())        //Send an Email. Return true on success or false on error
   {
    $error = '<label class="text-success">Thank you for contacting us</label>';
+    echo $error;
   }
   else
   {
    $error = '<label class="text-danger">There is an Error</label>';
+    echo $error;
   }
 ?>

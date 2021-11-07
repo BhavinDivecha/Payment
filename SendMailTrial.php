@@ -11,7 +11,7 @@
 use PHPMailer;
 use SMTP;
 
-require 'autoload.php';
+require 'PHPMailerAutoload.php';
 
 //Create a new PHPMailer instance
 $mail = new PHPMailer();

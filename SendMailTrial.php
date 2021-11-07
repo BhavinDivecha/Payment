@@ -6,8 +6,9 @@
   $err = array();
 
 $mail = new PHPMailer\PHPMailer\PHPMailer();
-
+$mail->SMTPDebug = 3;
 $mail->isSMTP();  // the mailer is set to use SMTP
+
 $mail->Host = "smtp.zoho.com";  // specify main and backup server
 $mail->SMTPAuth = true; // SMTP authentication is turned on
 $mail->Username = "support@blackstonegamedevelopment.in";  // SMTP username

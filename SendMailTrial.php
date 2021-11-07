@@ -17,14 +17,6 @@ require 'phpmailer/class.phpmailer.php';
   $mail->IsHTML(true);       //Sets message type to HTML    
   $mail->Subject = 'Hello';    //Set s the Subject of the message
   $mail->Body = 'Trial Message';    //An HTML or plain text message body
-  if($mail->Send())        //Send an Email. Return true on success or false on error
-  {
-   $error = '<label class="text-success">Thank you for contacting us</label>';
-    echo $error;
-  }
-  else
-  {
-   $error = '<label class="text-danger">There is an Error</label>';
-    echo $error;
-  }
+  $result=$mail->Send()
+  echo $result;
 ?>

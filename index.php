@@ -13,7 +13,7 @@
 
 Email: <input type="text" id="EMAILID" name="EMAILID">
 OTP: <input type="text" id="OTP" name="OTP">
-    <input type="Send">
+    <input type="submit">
 </form>
     </body>
 </html>

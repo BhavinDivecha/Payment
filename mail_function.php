@@ -1,7 +1,6 @@
 <?php	
 	function sendOTP($email,$otp) {
 		require('phpmailer/class.phpmailer.php');
-		require('phpmailer/class.smtp.php');
 	
 		$message_body = " Your OTP for Ludo Classic Pro is : ".$otp;
 		$mail = new PHPMailer();

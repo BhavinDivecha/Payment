@@ -5,6 +5,7 @@
 		$message_body = " Your OTP for Ludo Classic Pro is : ".$otp;
 		$mail = new PHPMailer();
 		$mail->isSMTP();
+		$mail->SMTPAuth = true;
 	$mail->Host = "smtp.gmail.com";
 	$mail->Username = "3idevelopers2021@gmail.com";
 	$mail->Password = "rachsbd123";

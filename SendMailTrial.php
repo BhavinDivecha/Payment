@@ -17,6 +17,6 @@ require 'phpmailer/class.phpmailer.php';
   $mail->IsHTML(true);       //Sets message type to HTML    
   $mail->Subject = 'Hello';    //Set s the Subject of the message
   $mail->Body = 'Trial Message';    //An HTML or plain text message body
-  $result=$mail->Send()
+  $result=$mail->Send();
   echo $result;
 ?>

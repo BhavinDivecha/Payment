@@ -1,25 +1,31 @@
 <?php
+  require_once 'PHPMailer.php';
+  require_once 'Exception.php';
+  require_once 'SMTP.php';
 
+  $err = array();
 
-require 'phpmailer/class.phpmailer.php';
-  $mail = new PHPMailer();
-  $mail->SMTPDebug = 3;
-    
-  $mail->IsSMTP();        //Sets Mailer to send message using SMTP
-  
-  $mail->Host = 'smtp.gmail.com';  //Sets the SMTP hosts
-  $mail->Port = '80';        //Sets the default SMTP server port
-  $mail->SMTPAuth = true;       //Sets SMTP authentication. Utilizes the Username and Password variables
-  $mail->Username = 'blackston404@gmail.com';     //Sets SMTP username
-  $mail->Password = 'bhbh123123';     //Sets SMTP password
-  $mail->SMTPSecure = 'tls';       //Sets connection prefix. Options are "", "ssl" or "tls"
-  $mail->From = 'blackston404@gmail.com';     //Sets the From email address for the message
-  $mail->FromName = 'Bhavin';    //Sets the From name of the message
-  $mail->AddAddress('bhavin.divecha09@gmail.com', 'Name');//Adds a "To" address
-  $mail->WordWrap = 50;       //Sets word wrapping on the body of the message to a given number of characters
-  $mail->IsHTML(true);       //Sets message type to HTML    
-  $mail->Subject = 'Hello';    //Set s the Subject of the message
-  $mail->Body = 'Trial Message';    //An HTML or plain text message body
+$mail = new PHPMailer\PHPMailer\PHPMailer();
+
+$mail->isSMTP();  // the mailer is set to use SMTP
+$mail->Host = "smtp.zoho.com";  // specify main and backup server
+$mail->SMTPAuth = true; // SMTP authentication is turned on
+$mail->Username = "support@blackstonegamedevelopment.in";  // SMTP username
+$mail->Password = "Bh@vin123"; // SMTP password
+$mail->SMTPSecure = 'ssl';
+$mail->Port = 465;
+
+$mail->From = "support@blackstonegamedevelopment.in";
+$mail->FromName = "BGD";	 // name is optional
+$mail->AddAddress('blackston404@gmail.com');
+
+$mail->WordWrap = 50;  // set word wrap to 50 characters
+$mail->IsHTML(true); // set email format to HTML
+
+$mail->Subject = "Welcome to Scriptverse";
+$mail->Body    = "Hello Guest, <br/><br/> Welome to <b>ScriptVerse</b>. <br/></br/>Thank you,<br/>Scriptverse Team";
+$mail->AltBody = "This is the body in plain text for non-HTML mail clients";
+
   $result=$mail->Send();
   echo $result;
 ?>

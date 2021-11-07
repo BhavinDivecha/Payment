@@ -2,7 +2,6 @@
 
 
 require 'phpmailer/class.phpmailer.php';
-require 'phpmailer/class.smtp.php';
   $mail = new PHPMailer();
   $mail->IsSMTP();        //Sets Mailer to send message using SMTP
   $mail->Host = 'smtpout.secureserver.net';  //Sets the SMTP hosts

@@ -3,13 +3,16 @@
 
 require 'phpmailer/class.phpmailer.php';
   $mail = new PHPMailer();
+  $mail->SMTPDebug = 3;
+    
   $mail->IsSMTP();        //Sets Mailer to send message using SMTP
+  
   $mail->Host = 'smtpout.secureserver.net';  //Sets the SMTP hosts
   $mail->Port = '80';        //Sets the default SMTP server port
   $mail->SMTPAuth = true;       //Sets SMTP authentication. Utilizes the Username and Password variables
   $mail->Username = '3idevelopers2021@gmail.com';     //Sets SMTP username
   $mail->Password = 'rachsbd123';     //Sets SMTP password
-  $mail->SMTPSecure = '';       //Sets connection prefix. Options are "", "ssl" or "tls"
+  $mail->SMTPSecure = 'tls';       //Sets connection prefix. Options are "", "ssl" or "tls"
   $mail->From = '3idevelopers2021@gmail.com';     //Sets the From email address for the message
   $mail->FromName = 'Bhavin';    //Sets the From name of the message
   $mail->AddAddress('bhavin.divecha09@gmail.com', 'Name');//Adds a "To" address

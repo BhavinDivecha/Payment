@@ -7,7 +7,7 @@ require 'phpmailer/class.phpmailer.php';
     
   $mail->IsSMTP();        //Sets Mailer to send message using SMTP
   
-  $mail->Host = 'smtpout.secureserver.net';  //Sets the SMTP hosts
+  $mail->Host = 'smtp.gmail.com';  //Sets the SMTP hosts
   $mail->Port = '80';        //Sets the default SMTP server port
   $mail->SMTPAuth = true;       //Sets SMTP authentication. Utilizes the Username and Password variables
   $mail->Username = 'blackston404@gmail.com';     //Sets SMTP username

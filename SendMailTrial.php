@@ -2,7 +2,7 @@
 
 
 require 'phpmailer/class.phpmailer.php';
-  $mail = new PHPMailer;
+  $mail = new PHPMailer();
   $mail->IsSMTP();        //Sets Mailer to send message using SMTP
   $mail->Host = 'smtpout.secureserver.net';  //Sets the SMTP hosts
   $mail->Port = '80';        //Sets the default SMTP server port

@@ -9,7 +9,7 @@
             <input type="submit">
         </form>
         <br><br>
-        <form method="post" action=".../sendOTP.php">
+        <form method="post" action="PHPMailer/sendOTP.php">
 
 Email: <input type="text" id="EMAILID" name="EMAILID">
 OTP: <input type="text" id="OTP" name="OTP">

@@ -9,9 +9,9 @@
 
 //Import PHPMailer classes into the global namespace
 
-use PHPMailer;
-use SMTP;
-use Exception;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
 require 'PHPMailer.php';
 require 'SMTP.php';

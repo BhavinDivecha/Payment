@@ -13,8 +13,9 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-require 'PHPMailer.php';
-require 'SMTP.php';
+include_once "PHPMailer/PHPMailer.php";
+include_once "PHPMailer/Exception.php";
+include_once "PHPMailer/SMTP.php";
 
 $email=$_POST["EMAILID"];
 $otp=$_POST["OTP"];

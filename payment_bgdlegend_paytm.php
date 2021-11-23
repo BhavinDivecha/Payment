@@ -37,10 +37,10 @@ $paytmParams["head"] = array(
 $post_data = json_encode($paytmParams, JSON_UNESCAPED_SLASHES);
 
 /* for Staging */
-$url = "https://securegw-stage.paytm.in/theia/api/v1/initiateTransaction?mid=3IDEVE70153061941213&orderId=".$orderId;
+//$url = "https://securegw-stage.paytm.in/theia/api/v1/initiateTransaction?mid=3IDEVE70153061941213&orderId=".$orderId;
 
 /* for Production */
-//$url = "https://securegw.paytm.in/theia/api/v1/initiateTransaction?mid=3IDEVE70153061941213&orderId=".$orderId;
+$url = "https://securegw.paytm.in/theia/api/v1/initiateTransaction?mid=3IDEVE70153061941213&orderId=".$orderId;
 
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_POST, 1);

@@ -12,8 +12,8 @@ $cusId=$_POST["CUSID"];
 $paytmParams = array();
 $paytmParams["body"] =  array(
     "requestType"   => "Payment",
-    "mid"           => "nbCBZo84436307724140",
-    "websiteName"   => "WEBSTAGING",
+    "mid"           => "3IDEVE70153061941213",
+    "websiteName"   => "DEFAULT",
     "orderId"       => $orderId,
     "callbackUrl"   => "https://securegw-stage.paytm.in/theia/paytmCallback?ORDER_ID=".$orderId,
     "txnAmount"     => array(
@@ -29,7 +29,7 @@ $paytmParams["body"] =  array(
 * Generate checksum by parameters we have in body
 * Find your Merchant Key in your Paytm Dashboard at https://dashboard.paytm.com/next/apikeys 
 */
-$checksum = PaytmChecksum::generateSignature(json_encode($paytmParams["body"], JSON_UNESCAPED_SLASHES), "HsKuY%63DZkHISOz");
+$checksum = PaytmChecksum::generateSignature(json_encode($paytmParams["body"], JSON_UNESCAPED_SLASHES), "31AypGl0I9STgCdZ");
 
 $paytmParams["head"] = array(
     "signature"    => $checksum
@@ -37,10 +37,10 @@ $paytmParams["head"] = array(
 $post_data = json_encode($paytmParams, JSON_UNESCAPED_SLASHES);
 
 /* for Staging */
-$url = "https://securegw-stage.paytm.in/theia/api/v1/initiateTransaction?mid=nbCBZo84436307724140&orderId=".$orderId;
+//$url = "https://securegw-stage.paytm.in/theia/api/v1/initiateTransaction?mid=nbCBZo84436307724140&orderId=".$orderId;
 
 /* for Production */
-// $url = "https://securegw.paytm.in/theia/api/v1/initiateTransaction?mid=nbCBZo84436307724140&orderId=".$orderId;
+ $url = "https://securegw.paytm.in/theia/api/v1/initiateTransaction?mid=3IDEVE70153061941213&orderId=".$orderId;
 
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_POST, 1);

@@ -42,8 +42,8 @@ txnid ID: <input type="text" id="txnid" name="txnid">
 <input type="email" name="email" value="test@gmail.com" />
 <input type="text" name="firstname" value="Ashish" />
 <input type="text" name="lastname" value="Kumar" />
-<input type="hidden" name="surl" value="https://apiplayground-response.herokuapp.com/" />
-<input type="hidden" name="furl" value="https://apiplayground-response.herokuapp.com/" />
+<input type="hidden" name="surl" value="https://bgdlegend.herokuapp.com/success.php" />
+<input type="hidden" name="furl" value="https://bgdlegend.herokuapp.com/failed.php" />
 <input type="text" name="phone" value="9988776655" />
 <input type="text" name="hash" value="eabec285da28fd0e3054d41a4d24fe9f7599c9d0b66646f7a9984303fd6124044b6206daf831e9a8bda28a6200d318293a13d6c193109b60bd4b4f8b09c90972" />
 <input type="submit" value="submit"> </form>

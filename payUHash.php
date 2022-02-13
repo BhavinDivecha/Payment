@@ -1,4 +1,6 @@
-<?php
+<!DOCTYPE html>
+<html>
+    <body><?php
 
 function getHashes($txnid, $amount, $productinfo, $firstname, $email, $user_credentials, $udf1, $udf2, $udf3, $udf4, $udf5,$offerKey,$cardBin)
 {
@@ -106,7 +108,20 @@ function checkNull($value) {
 $output=getHashes($_POST["txnid"], $_POST["amount"], $_POST["productinfo"], $_POST["firstname"], $_POST["email"], $_POST["user_credentials"], $_POST["udf1"], $_POST["udf2"], $_POST["udf3"], $_POST["udf4"], $_POST["udf5"],$_POST["offerKey"],$_POST["cardBin"]);
 
 
-//echo str_replace('"', '', json_encode($output['payment_hash']));
-echo json_encode($output);
+echo str_replace('"', '', json_encode($output));
+//echo json_encode($output);
 
 ?>
+        <form action='https://secure.payu.in/_payment' method='post'>
+<input type="hidden" name="key" value="Cm0Gy1" />
+<input type="text" name="txnid" value=<?php echo $_POST["txnid"]?> />
+<input type="text" name="productinfo" value=<?php echo $_POST["productinfo"]?> />
+<input type="text" name="amount" value=<?php echo $_POST["amount"]?> />
+<input type="email" name="email" value=<?php echo $_POST["email"]?> />
+<input type="text" name="firstname" value=<?php echo $_POST["firstname"]?> />
+<input type="hidden" name="surl" value="https://bgdlegend.herokuapp.com/success.php" />
+<input type="hidden" name="furl" value="https://bgdlegend.herokuapp.com/failed.php" />
+<input type="text" name="hash" value="eabec285da28fd0e3054d41a4d24fe9f7599c9d0b66646f7a9984303fd6124044b6206daf831e9a8bda28a6200d318293a13d6c193109b60bd4b4f8b09c90972" />
+<input type="submit" value="submit"> </form>
+</body>
+</html>

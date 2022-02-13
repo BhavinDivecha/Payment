@@ -119,6 +119,7 @@ echo str_replace('"', '', json_encode($output));
 <input type="text" name="amount" value=<?php echo $_POST["amount"]?> />
 <input type="email" name="email" value=<?php echo $_POST["email"]?> />
 <input type="text" name="firstname" value=<?php echo $_POST["firstname"]?> />
+<input type="text" name="phone" value="7021659118" />
 <input type="hidden" name="surl" value="https://bgdlegend.herokuapp.com/success.php" />
 <input type="hidden" name="furl" value="https://bgdlegend.herokuapp.com/failed.php" />
 <input type="text" name="hash" value="eabec285da28fd0e3054d41a4d24fe9f7599c9d0b66646f7a9984303fd6124044b6206daf831e9a8bda28a6200d318293a13d6c193109b60bd4b4f8b09c90972" />

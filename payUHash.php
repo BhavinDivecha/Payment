@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <body><?php
-$key="";
+<?php
 function getHashes($txnid, $amount, $productinfo, $firstname, $email, $user_credentials, $udf1, $udf2, $udf3, $udf4, $udf5,$offerKey,$cardBin)
 {
       // $firstname, $email can be "", i.e empty string if needed. Same should be sent to PayU server (in request params) also.
@@ -115,18 +112,3 @@ $hash = str_replace('"', '', json_encode($output));
 //echo json_encode($output);
 
 ?>
-        <form action='https://secure.payu.in/_payment' method='post'>
-            <!-- <form action='https://test.payu.in/_payment' method='post'> -->
-<input type="text" name="key" value=<?php echo $key?> />
-<input type="text" name="txnid" value=<?php echo $_POST["txnid"]?> />
-<input type="text" name="productinfo" value=<?php echo $_POST["productinfo"]?> />
-<input type="text" name="amount" value=<?php echo $_POST["amount"]?> />
-<input type="email" name="email" value=<?php echo $_POST["email"]?> />
-<input type="text" name="firstname" value=<?php echo $_POST["firstname"]?> />
-<input type="text" name="phone" value=<?php echo $_POST["phone"]?> />
-<input type="hidden" name="surl" value="https://bgdlegend.herokuapp.com/success.php" />
-<input type="hidden" name="furl" value="https://bgdlegend.herokuapp.com/failed.php" />
-<input type="text" name="hash" value=<?php echo $hash ?> />
-<input type="submit" value="Pay"> </form>
-</body>
-</html>

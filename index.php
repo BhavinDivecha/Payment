@@ -34,8 +34,8 @@ txnid ID: <input type="text" id="txnid" name="txnid">
         </form>
         <br>
         <br>
-        <form action='https://secure.payu.in/_payment' method='post'>
-<input type="hidden" name="key" value="Cm0Gy1" />
+        <form action='https://test.payu.in/_payment' method='post'>
+<input type="hidden" name="key" value="JPM7Fg" />
 <input type="text" name="txnid" value="t6svtqtjRdl4ws" />
 <input type="text" name="productinfo" value="iPhone" />
 <input type="text" name="amount" value="1" />

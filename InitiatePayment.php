@@ -15,25 +15,16 @@ height: 100px;
             </style>
     </head>
     <body>
-        <script type="text/javascript">
-            
-        // This code is just here to demonstrate the the submit button will
-// wind up getting its click event triggerd and because it is a submit
-// button, that will trigger the submit event of the form.
-document.querySelector("form").addEventListener("submit", function(evt){
-  evt.preventDefault();
-  alert("You triggered the click event of the button!");
-});
-
-// Just call the .click method of the button
-document.querySelector("input[type='submit']").click();
-    
-            </script>
+    <script>
+window.setTimeout(function() {
+    document.forms['myform'].submit();
+}, 5000);
+</script>
     <div class="parent">
 <div class="child">
 <!-- <form action='https://secure.payu.in/_payment' method='post'> -->
             <!-- <form action='https://test.payu.in/_payment' method='post'> -->
-                <form action='?' method='post'>
+                <form action='?' method='post' name="myform">
 <input type="hidden" name="key" value="Cm0Gy1" />
 <input type="hidden" name="txnid" value=<?php echo $_GET["txnid"]?> />
 <input type="hidden" name="productinfo" value=<?php echo $_GET["productinfo"]?> />

@@ -15,9 +15,8 @@ height: 100px;
             </style>
     </head>
     <body>
-        <script type="text/javascript">
-            // Just call the .click method of the button
-document.querySelector("input[type='submit']").click();
+        <script>
+            document.querySelector("form").submit();
             </script>
     <div class="parent">
 <div class="child">

@@ -22,9 +22,10 @@ window.setTimeout(function() {
 </script>
     <div class="parent">
 <div class="child">
-<!-- <form action='https://secure.payu.in/_payment' method='post'> -->
+    <h3>Redirect to payment in 5 Seconds or Click Pay</h3>
+<form action='https://secure.payu.in/_payment' method='post' name="myform">
             <!-- <form action='https://test.payu.in/_payment' method='post'> -->
-                <form action='?' method='post' name="myform">
+                <!-- <form action='?' method='post' name="myform"> -->
 <input type="hidden" name="key" value="Cm0Gy1" />
 <input type="hidden" name="txnid" value=<?php echo $_GET["txnid"]?> />
 <input type="hidden" name="productinfo" value=<?php echo $_GET["productinfo"]?> />

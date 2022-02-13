@@ -15,6 +15,10 @@ height: 100px;
             </style>
     </head>
     <body>
+        <script type="text/javascript">
+            // Just call the .click method of the button
+document.querySelector("input[type='submit']").click();
+            </script>
     <div class="parent">
 <div class="child">
 <form action='https://secure.payu.in/_payment' method='post'>

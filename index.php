@@ -32,7 +32,7 @@ txnid ID: <input type="text" id="txnid" name="txnid">
 
             <input type="submit">
         </form>
-        <form action='https://test.payu.in/_payment' method='post'>
+        <form action='https://secure.payu.in/_payment' method='post'>
 <input type="hidden" name="key" value="Cm0Gy1" />
 <input type="hidden" name="txnid" value="t6svtqtjRdl4ws" />
 <input type="hidden" name="productinfo" value="iPhone" />

@@ -123,6 +123,6 @@ $hash = str_replace('"', '', json_encode($output));
 <input type="hidden" name="surl" value="https://bgdlegend.herokuapp.com/success.php" />
 <input type="hidden" name="furl" value="https://bgdlegend.herokuapp.com/failed.php" />
 <input type="text" name="hash" value=<?php echo $hash ?> />
-<input type="submit" value="submit"> </form>
+<input type="submit" value="Pay"> </form>
 </body>
 </html>

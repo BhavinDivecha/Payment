@@ -15,6 +15,6 @@
 <input type="hidden" name="surl" value="https://bgdlegend.herokuapp.com/success.php" />
 <input type="hidden" name="furl" value="https://bgdlegend.herokuapp.com/failed.php" />
 <input type="hidden" name="hash" value=<?php echo $_GET["hash"]?> />
-<input type="submit" value="Pay" style="height:500px;width:500px;font-size: 50px;"> </form>
+<input type="submit" value="Pay" style=" width: 150px; background-color: #0D1E29; text-align: center; font-weight: 800; padding: 11px 0px; color: white; font-size: 12px; display: inline-block; text-decoration: none; "> </form>
 </body>
 </html>

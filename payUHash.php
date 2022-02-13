@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
 <?php
 function getHashes($txnid, $amount, $productinfo, $firstname, $email, $user_credentials, $udf1, $udf2, $udf3, $udf4, $udf5,$offerKey,$cardBin)
 {
@@ -107,8 +111,12 @@ function checkNull($value) {
 
 $output=getHashes($_POST["txnid"], $_POST["amount"], $_POST["productinfo"], $_POST["firstname"], $_POST["email"], $_POST["user_credentials"], $_POST["udf1"], $_POST["udf2"], $_POST["udf3"], $_POST["udf4"], $_POST["udf5"],$_POST["offerKey"],$_POST["cardBin"]);
 
-
+?>
+<?php
 $hash = str_replace('"', '', json_encode($output));
 //echo json_encode($output);
 
 ?>
+<p><?php echo $hash; ?></p>
+</body>
+</html>

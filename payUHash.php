@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html>
-    <body>
 
 <?php
 function getHashes($txnid, $amount, $productinfo, $firstname, $email, $user_credentials, $udf1, $udf2, $udf3, $udf4, $udf5,$offerKey,$cardBin)
@@ -115,8 +112,5 @@ $output=getHashes($_POST["txnid"], $_POST["amount"], $_POST["productinfo"], $_PO
 <?php
 $hash = str_replace('"', '', json_encode($output));
 //echo json_encode($output);
-
+echo $hash;
 ?>
-<p><?php echo $hash; ?></p>
-</body>
-</html>

@@ -5,8 +5,11 @@
 function getHashes($txnid, $amount, $productinfo, $firstname, $email, $user_credentials, $udf1, $udf2, $udf3, $udf4, $udf5,$offerKey,$cardBin)
 {
       // $firstname, $email can be "", i.e empty string if needed. Same should be sent to PayU server (in request params) also.
-      $key = 'Cm0Gy1';
-      $salt = '0fCctiU3uGOnkGxUvEtE7BVzASMgYoDK';
+      // $key = 'Cm0Gy1';
+      // $salt = '0fCctiU3uGOnkGxUvEtE7BVzASMgYoDK';
+
+      $key = 'gtKFFx';
+      $salt = 'wia56q6O';
 
       $payhash_str = $key . '|' . checkNull($txnid) . '|' .checkNull($amount)  . '|' .checkNull($productinfo)  . '|' . checkNull($firstname) . '|' . checkNull($email) . '|' . checkNull($udf1) . '|' . checkNull($udf2) . '|' . checkNull($udf3) . '|' . checkNull($udf4) . '|' . checkNull($udf5) . '||||||' . $salt;
       $paymentHash = strtolower(hash('sha512', $payhash_str));
@@ -112,8 +115,9 @@ $hash = str_replace('"', '', json_encode($output));
 //echo json_encode($output);
 
 ?>
-        <form action='https://secure.payu.in/_payment' method='post'>
-<input type="hidden" name="key" value="Cm0Gy1" />
+        <!-- <form action='https://secure.payu.in/_payment' method='post'> -->
+            <form action='https://test.payu.in/_payment' method='post'>
+<input type="text" name="key" value="gtKFFx" />
 <input type="text" name="txnid" value=<?php echo $_POST["txnid"]?> />
 <input type="text" name="productinfo" value=<?php echo $_POST["productinfo"]?> />
 <input type="text" name="amount" value=<?php echo $_POST["amount"]?> />

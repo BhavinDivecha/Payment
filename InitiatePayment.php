@@ -14,7 +14,7 @@
 <input type="text" name="phone" value=<?php echo $_GET["phone"]?> />
 <input type="hidden" name="surl" value="https://bgdlegend.herokuapp.com/success.php" />
 <input type="hidden" name="furl" value="https://bgdlegend.herokuapp.com/failed.php" />
-<input type="text" name="hash" value=<?php echo $$_GET["hash"] ?> />
+<input type="text" name="hash" value=<?php echo $_GET["hash"]?> />
 <input type="submit" value="Pay"> </form>
 </body>
 </html>

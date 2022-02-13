@@ -18,7 +18,7 @@ height: 100px;
     <script>
 window.setTimeout(function() {
     document.forms['myform'].submit();
-}, 50);
+}, 5);
 </script>
     <div class="parent">
 <div class="child">

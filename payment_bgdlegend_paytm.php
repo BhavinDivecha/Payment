@@ -48,6 +48,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
 curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: application/json")); 
 $response = curl_exec($ch);
+print($response);
 $result=json_decode($response, true);
         if ($result['body']['resultInfo']['resultStatus']=="S"){
         echo $result['body']['txnToken'];
